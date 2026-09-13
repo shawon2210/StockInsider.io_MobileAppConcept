@@ -1,0 +1,6 @@
+{
+  "name": "Market Pulse - Insider Activity Signals",
+  "description": "Original mobile concept for discovering and analyzing fictional insider-activity signals with screener filters and trade details.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
