@@ -71,8 +71,10 @@ await delay(600);
 await check('Details: back button visible', async () => await page.isVisible('#details-back-btn'));
 await check('Details: chart rendered', async () => (await page.locator('#details-chart svg').count()) >= 1);
 await check('Details: disclaimer visible', async () => await page.isVisible('#details-disclaimer'));
-await check('Details: trade value shown', async () =>
-  (await page.locator('#details-trade-value').textContent()).includes('2,400,000'));
+await check('Details: trade value shown', async () => {
+  const txt = await page.locator('#details-trade-value').textContent();
+  return txt.includes('2.40M') || txt.includes('2,400,000');
+});
 
 console.log('--- PAGE ERRORS ---');
 console.log(errors.length ? errors.join('\n') : 'none');

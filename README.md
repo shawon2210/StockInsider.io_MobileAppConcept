@@ -119,8 +119,54 @@ npm run dev
 
 ---
 
-## Deliverables
+## Deliverables & Submission Assets
 
-- **Live Web Preview**: Integrated AI Studio container preview running on port 3000
-- **GitHub Repository**: Submitted via student portal
-- **Google Drive Folder**: Includes APK build artifacts, high-resolution device screenshots, and interactive video walkthrough
+All assets are located in the [`SubmissionAssets/`](./SubmissionAssets) directory:
+
+| Asset | Location | Details |
+|---|---|---|
+| **Android APK** | [`SubmissionAssets/MarketPulse-debug.apk`](./SubmissionAssets/MarketPulse-debug.apk) | 4.1 MB debug APK (`com.marketpulse.app`, minSdk 24, targetSdk 36). Verified on Android 16 (API 36) emulator with live screenshot proof in [`apk-emulator-install-proof.png`](./SubmissionAssets/apk-emulator-install-proof.png). |
+| **Screenshot 1 — Home** | [`SubmissionAssets/screenshots/screenshot1_Home_MarketPulse.png`](./SubmissionAssets/screenshots/screenshot1_Home_MarketPulse.png) | Market Pulse header, fictional demo data badge, search trigger, 4 summary cards, top signals, latest activity feed. |
+| **Screenshot 2 — Screener** | [`SubmissionAssets/screenshots/screenshot2_Screener_Filters.png`](./SubmissionAssets/screenshots/screenshot2_Screener_Filters.png) | Search bar, 3 active filter groups (Type: Purchases, Role: All roles, Value: $500K+), live counter "Showing 4 demo results (filtered)". |
+| **Screenshot 3 — Details** | [`SubmissionAssets/screenshots/screenshot3_TradeDetails_Chart.png`](./SubmissionAssets/screenshots/screenshot3_TradeDetails_Chart.png) | Back button, NOVA company header, prominent signal card ($2.40M demo buy), 8-point filing spec grid, Mock 7-day activity SVG chart, "Why this matters", exact required disclaimer. |
+| **Demo Video (1–3 min)** | [`SubmissionAssets/video/MarketPulse-demo-720p.mp4`](./SubmissionAssets/video/MarketPulse-demo-720p.mp4) | High-definition mobile walkthrough (~61s) demonstrating launch, browsing, applying filters, inspecting NOVA details, exploring the mock chart, triggering the empty search state, and clearing filters. |
+
+---
+
+## Task Requirements & Verification Checklist
+
+| Requirement / Test Item | Implementation & Verification Status |
+|---|---|
+| **Launches directly to Market Pulse** | Verified: Zero console errors, zero runtime warnings (`scripts/verify-screens.mjs` PASS). |
+| **Home Screen Components** | Verified: Header + `Fictional demo data` badge, search entry (`Search ticker or company`), 4 summary cards derived from array, 3 top signals, 4 latest activity cards. |
+| **Screener & 3 Filter Groups** | Verified: Type (All / Purchases / Sales), Role (All roles / CEO / CFO / Director), Value Threshold (Any / $100K+ / $500K+ / $1M+). Derived dynamically from local state. |
+| **Case-Insensitive Search** | Verified: Instant matching across ticker (`NOVA`), company name (`NovaGrid`), insider name (`Maya Chen`), and signal title. |
+| **Actionable Empty State** | Verified: Searching unmatched query (`zzq`) displays "No matching transactions", "No fictional demo trades match those filters.", and a one-tap "Clear filters" button. |
+| **Semantic Purchase / Sale Labels** | Verified: Every transaction explicitly uses "Purchase ↑" (emerald green) or "Sale ↓" (rose red) alongside icons and directional arrows. |
+| **Navigation & Details Screen** | Verified: Card taps seamlessly navigate to Trade Details; Back button returns to the previous screen. |
+| **Details Screen Required Fields** | Verified: Company name, ticker, sector, `FICTIONAL DEMO DATA` badge, prominent signal card, 8-field filing grid, Mock 7-day activity SVG chart, "Why this matters", and exact required disclaimer. |
+| **Fictional Local Data Boundary** | Verified: 100% locally stored in `src/data/mockTrades.ts`. No web scraping, no SEC EDGAR calls, no network requests, no StockInsider.io content. |
+| **Accessibility & Mobile Layout** | Verified: All interactive touch targets maintain >= 40–44px bounds, `aria-pressed` states on filter chips, `aria-label` attributes on icon buttons, and responsive dark theme (#0B1220 / #172033). |
+
+---
+
+## Participation Email Template
+
+```text
+To: ahmedsakeeb.work@gmail.com
+CC: hrd@arklabai.com
+Subject: React Native Developer Intern Batch 04 - {Your Name} - Arklab AI
+
+Hi Arklab AI Team,
+
+I confirm that I will participate in the React Native Developer Intern screening task for Batch 04.
+
+Name: {Your Full Name}
+Project: StockInsider.io Mobile App Concept
+Preferred development tools: VS Code, Expo, React Native, TypeScript, Chrome DevTools
+GitHub profile: {Your GitHub Link}
+Portfolio / LinkedIn: {Your LinkedIn / Portfolio Link}
+
+Thank you,
+{Your Name}
+```

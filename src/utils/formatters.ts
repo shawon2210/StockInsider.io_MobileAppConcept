@@ -5,7 +5,7 @@
 export function formatCurrency(amount: number): string {
   if (amount >= 1_000_000) {
     const millions = amount / 1_000_000;
-    return `$${millions.toFixed(2).replace(/\.00$/, '')}M`;
+    return `$${millions.toFixed(2)}M`;
   }
   if (amount >= 1_000) {
     const thousands = amount / 1_000;

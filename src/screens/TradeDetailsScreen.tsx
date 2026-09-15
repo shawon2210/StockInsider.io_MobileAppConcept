@@ -114,7 +114,7 @@ export const TradeDetailsScreen: React.FC<TradeDetailsScreenProps> = ({
           </span>
         </div>
 
-        <div className="text-2xl sm:text-3xl font-bold font-mono text-slate-100 tracking-tight mb-1">
+        <div id="details-trade-value" className="text-2xl sm:text-3xl font-bold font-mono text-slate-100 tracking-tight mb-1">
           {formatCurrency(trade.value)}
         </div>
         <p className="text-xs text-slate-300 opacity-90">
@@ -219,11 +219,13 @@ export const TradeDetailsScreen: React.FC<TradeDetailsScreenProps> = ({
       </section>
 
       {/* Custom Visualization: Mock 7-day activity */}
-      <MockActivityChart
-        data={trade.activityHistory}
-        tradeType={trade.type}
-        ticker={trade.ticker}
-      />
+      <div id="details-chart">
+        <MockActivityChart
+          data={trade.activityHistory}
+          tradeType={trade.type}
+          ticker={trade.ticker}
+        />
+      </div>
 
       {/* Why This Matters Educational Card */}
       <section aria-labelledby="why-matters-heading" className="bg-[#172033] border border-slate-800 rounded-2xl p-4">
@@ -239,7 +241,7 @@ export const TradeDetailsScreen: React.FC<TradeDetailsScreenProps> = ({
       </section>
 
       {/* Required Exact Regulatory/Prototype Disclaimer */}
-      <footer aria-label="Disclaimer" className="bg-[#0B1220] border border-amber-900/30 rounded-2xl p-4">
+      <footer id="details-disclaimer" aria-label="Disclaimer" className="bg-[#0B1220] border border-amber-900/30 rounded-2xl p-4">
         <div className="flex items-start gap-2.5">
           <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
           <div className="space-y-1">

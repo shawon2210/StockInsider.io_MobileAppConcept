@@ -69,7 +69,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <header className="pt-2">
         <div className="flex items-center justify-between gap-2 mb-1">
           <div className="flex items-center gap-2">
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">
+            <h1 id="home-app-title" className="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">
               Market Pulse
             </h1>
             <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-950/80 text-sky-300 border border-sky-800/60">
@@ -102,7 +102,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         >
           <div className="flex items-center gap-2.5 text-slate-400 group-hover:text-slate-300">
             <Search className="w-4 h-4 text-slate-400 group-hover:text-sky-400 transition-colors" />
-            <span className="text-sm font-normal">Search ticker or company...</span>
+            <span className="text-sm font-normal">Search ticker or company</span>
           </div>
           <span className="text-[11px] font-medium text-sky-400 bg-sky-950/60 px-2 py-0.5 rounded-lg border border-sky-800/40">
             Browse all
@@ -119,7 +119,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           <span className="text-[11px] text-slate-400">Calculated locally</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div id="home-summary-list" className="grid grid-cols-2 gap-2.5 sm:gap-3">
           <SummaryCard
             id="summary-card-filings"
             title="Transactions"
@@ -201,7 +201,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       <section aria-labelledby="latest-activity-heading">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 id="latest-activity-heading" className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <h2 id="home-latest-header" className="text-xs font-semibold uppercase tracking-wider text-slate-400">
               Latest Activity
             </h2>
             <p className="text-[11px] text-slate-400">Recent mock filings</p>

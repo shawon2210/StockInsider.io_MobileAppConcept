@@ -162,7 +162,7 @@ export const ScreenerScreen: React.FC<ScreenerScreenProps> = ({
           <div className="flex flex-wrap gap-2">
             <FilterChip
               id="filter-type-all"
-              label="All Types"
+              label="All"
               active={typeFilter === 'all'}
               onClick={() => setTypeFilter('all')}
             />
@@ -231,7 +231,7 @@ export const ScreenerScreen: React.FC<ScreenerScreenProps> = ({
           <div className="flex flex-wrap gap-2">
             <FilterChip
               id="filter-threshold-any"
-              label="Any value"
+              label="Any"
               active={thresholdFilter === 0}
               onClick={() => setThresholdFilter(0)}
             />
@@ -262,7 +262,7 @@ export const ScreenerScreen: React.FC<ScreenerScreenProps> = ({
 
       {/* Results Header & Counter */}
       <div className="flex items-center justify-between pt-1">
-        <div className="text-xs font-semibold text-slate-300">
+        <div id="screener-result-count" className="text-xs font-semibold text-slate-300">
           <span>Showing </span>
           <span className="text-sky-400 font-mono font-bold">
             {filteredTrades.length}
@@ -277,7 +277,7 @@ export const ScreenerScreen: React.FC<ScreenerScreenProps> = ({
       </div>
 
       {/* Trades List or Empty State */}
-      <div className="space-y-2.5">
+      <div id="screener-results" className="space-y-2.5">
         {filteredTrades.length > 0 ? (
           filteredTrades.map((trade) => (
             <TradeCard

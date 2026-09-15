@@ -40,6 +40,7 @@ export const FilterChip: React.FC<FilterChipProps> = ({
       id={id}
       type="button"
       onClick={onClick}
+      aria-pressed={active}
       className={`inline-flex items-center gap-1.5 px-3 py-2 min-h-[40px] rounded-xl text-xs sm:text-sm border transition-all duration-150 cursor-pointer whitespace-nowrap active:scale-95 ${getActiveStyles()}`}
     >
       {icon && <span className="shrink-0">{icon}</span>}
