@@ -1,8 +1,20 @@
+/**
+ * components/TradeCard.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Card component for displaying a single trade in both Home and Screener feeds.
+ * Key design considerations I focused on:
+ * - 3-tier hierarchy: Ticker/Company top, Value/Type middle, Insider/Role bottom.
+ * - Double cues: text "Purchase ↑" / "Sale ↓" + colors for strict accessibility.
+ * - Keyboard support: onKeyDown handler for Enter and Space accessibility.
+ */
+
 import React from 'react';
 import { ArrowDownRight, ArrowUpRight, ChevronRight, User } from 'lucide-react';
 import { InsiderTrade } from '../types/trade';
 import { SignalBadge } from './SignalBadge';
 import { formatCurrency } from '../utils/formatters';
+
 
 interface TradeCardProps {
   trade: InsiderTrade;

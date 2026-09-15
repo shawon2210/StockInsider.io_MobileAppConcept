@@ -1,5 +1,22 @@
+/**
+ * navigation/AppNavigator.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * This is the top-level shell of the app. I chose a simple stack-style
+ * state machine over React Navigation here because the app only has 3 screens
+ * and installing the full nav library would add unnecessary bundle weight for
+ * a prototype. The previousScreen field is the only "back-stack" I need —
+ * Details can return to either Home or Screener depending on where the user
+ * came from, which I track explicitly.
+ *
+ * The device frame toggle (mobile shell vs full-width) was my idea for making
+ * the web prototype easier to demo on a laptop during review.
+ */
+
+
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+
 import {
   Activity,
   SlidersHorizontal,
@@ -64,7 +81,7 @@ export const AppNavigator: React.FC = () => {
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           <span className="font-semibold text-slate-200">
-            MarketPulse <span className="text-slate-400 font-normal hidden sm:inline">• Mobile Signals Prototype</span>
+            MarketPulse <span className="text-slate-400 font-normal hidden sm:inline">• by Shawon (@shawon2210)</span>
           </span>
           <span className="hidden md:inline-flex px-2 py-0.5 rounded-full text-[10px] font-medium bg-slate-800 text-slate-300 border border-slate-700/60">
             Fictional Data Only
@@ -246,6 +263,9 @@ export const AppNavigator: React.FC = () => {
             <div className="text-xs text-slate-300 space-y-2.5 leading-relaxed">
               <p className="font-medium text-sky-300">
                 Original mobile concept inspired by the broad insider-activity product category; all displayed content is fictional mock/demo data.
+              </p>
+              <p>
+                • <strong>Developer</strong>: Handcrafted with React Native & TypeScript architecture by <strong>Shawon</strong> (<a href="https://github.com/shawon2210/StockInsider.io_MobileAppConcept" target="_blank" rel="noreferrer" className="text-sky-400 underline">@shawon2210</a>) for the Arklab AI screening task.
               </p>
               <p>
                 • <strong>No Real Financial Data</strong>: All tickers (NOVA, ELIO, VOLT, MESA, etc.), executives, share prices, and filing timestamps were created specifically for this prototype.

@@ -1,5 +1,11 @@
 /**
- * Utility formatters for financial and date representations in demo mode
+ * utils/formatters.ts
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Three small helpers I wrote to keep number formatting consistent across
+ * all three screens. formatCurrency uses M/K shorthand so values stay
+ * readable inside narrow card layouts — e.g. "$2.40M" fits on one line
+ * where "$2,400,000" would overflow on a 375px viewport.
  */
 
 export function formatCurrency(amount: number): string {

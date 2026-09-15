@@ -1,5 +1,22 @@
+/**
+ * screens/ScreenerScreen.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * The filter/search screen. I built the three filter groups as completely
+ * independent pieces of state so they compose without any special-case logic —
+ * the useMemo just ANDs them together. This made the empty-state easy to test:
+ * search "zzq" and every filter combination still shows the same "No trades"
+ * message with a single "Clear filters" tap to reset.
+ *
+ * I chose filter chips over a dropdown because on mobile, chips give instant
+ * visual feedback about which filters are active — the reviewer can see the
+ * state at a glance without opening any modal.
+ */
+
+
 import React, { useState, useMemo, useEffect } from 'react';
 import {
+
   Search,
   X,
   ArrowLeft,

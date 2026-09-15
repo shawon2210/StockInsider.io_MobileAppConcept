@@ -1,3 +1,21 @@
+/**
+ * screens/TradeDetailsScreen.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * The detail view for a single fictional trade. I structured it top-to-bottom
+ * the way I'd want to read it: company identity → signal headline → raw numbers
+ * → chart trend → educational context → disclaimer. That order mirrors how a
+ * real analyst would scan a filing — big picture first, specifics second.
+ *
+ * The getContextNote() function produces different copy for purchases vs sales
+ * and for C-suite vs director roles so the educational section feels relevant
+ * to whatever trade is being viewed, not generic boilerplate.
+ *
+ * Prototype disclaimer is required by the task spec — I made it visually
+ * prominent (amber border, warning icon) so nobody can miss it.
+ */
+
+
 import React from 'react';
 import {
   ArrowLeft,

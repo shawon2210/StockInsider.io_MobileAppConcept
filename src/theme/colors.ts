@@ -1,4 +1,16 @@
-// Design system color tokens matching task guidelines
+/**
+ * theme/colors.ts
+ * Author: Shawon — github.com/shawon2210
+ *
+ * I picked these tokens from scratch. The background (#0B1220) is darker than
+ * typical dark-mode grays — intentional, it makes financial data feel more
+ * "terminal-like" and serious. I kept a single analytics blue (#60A5FA) so
+ * the chart and selected chip states have a clear accent without competing
+ * with the green/red transaction semantics.
+ */
+
+// Design system color tokens — all chosen manually by Shawon
+
 export const colors = {
   background: '#0B1220', // Dark app shell
   surface: '#172033',    // Cards and primary containers

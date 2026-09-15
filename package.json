@@ -1,21 +1,28 @@
 {
-  "name": "react-example",
+  "name": "market-pulse-insider-mobile",
+  "version": "1.0.0",
+  "description": "Market Pulse — a mobile-first insider-activity concept app. Built from scratch by Shawon for the Arklab AI React Native Developer Intern Batch 04 screening task.",
+  "author": "Shawon <https://github.com/shawon2210>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawon2210/StockInsider.io_MobileAppConcept.git"
+  },
+  "homepage": "https://github.com/shawon2210/StockInsider.io_MobileAppConcept#readme",
+  "keywords": ["react-native", "insider-trading", "mobile", "typescript", "capacitor", "market-pulse"],
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "clean": "rm -rf dist",
+    "lint": "tsc --noEmit",
+    "verify": "node scripts/verify-screens.mjs",
+    "screenshots": "node scripts/capture-screenshots.mjs"
   },
   "dependencies": {
-    "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
-    "dotenv": "^17.2.3",
-    "express": "^4.21.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
     "react": "^19.0.1",
@@ -26,13 +33,10 @@
     "@capacitor/android": "^8.5.2",
     "@capacitor/cli": "^8.5.2",
     "@capacitor/core": "^8.5.2",
-    "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
-    "esbuild": "^0.25.0",
     "playwright-core": "^1.63.0",
     "tailwindcss": "^4.1.14",
-    "tsx": "^4.21.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.3"
   }

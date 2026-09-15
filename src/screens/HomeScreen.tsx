@@ -1,5 +1,22 @@
+/**
+ * screens/HomeScreen.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * The landing screen — I wanted the user to "feel the pulse" of the market
+ * in under 3 seconds. Everything above the fold (search bar + summary cards)
+ * is computed directly from the mockTrades array so the numbers always add up.
+ * I deliberately avoided hard-coded totals in the UI so a reviewer can inspect
+ * the data file and trace exactly where each figure comes from.
+ *
+ * The top signals section uses three categories I invented myself:
+ * "Large CEO Purchase", "Cluster Buy", and "Executive Sale" — these are
+ * fictional signal names, not financial recommendations.
+ */
+
+
 import React from 'react';
 import {
+
   Search,
   TrendingUp,
   TrendingDown,

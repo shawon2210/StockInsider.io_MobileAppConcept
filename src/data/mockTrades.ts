@@ -1,4 +1,21 @@
+/**
+ * data/mockTrades.ts
+ * Author: Shawon — github.com/shawon2210
+ *
+ * I hand-crafted all 10 fictional trades below.
+ * Every company name, ticker, insider name, value, date, and signal label
+ * is completely made up — none of this reflects real SEC filings or any
+ * third-party financial database.
+ *
+ * Design choice: I spread the dataset across all four roles (CEO, CFO,
+ * Director, Officer) and both types (purchase, sale) so that every possible
+ * filter combination in ScreenerScreen returns at least one visible result.
+ * The activityHistory arrays are hand-tuned 7-point curves — purchases trend
+ * upward, sales trend downward — so the chart "tells a story" on the detail page.
+ */
+
 import { InsiderTrade } from '../types/trade';
+
 
 export const MOCK_TRADES: InsiderTrade[] = [
   {

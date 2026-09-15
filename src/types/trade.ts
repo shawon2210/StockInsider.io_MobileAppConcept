@@ -1,6 +1,21 @@
+/**
+ * types/trade.ts
+ * Author: Shawon
+ * GitHub: https://github.com/shawon2210
+ *
+ * Core TypeScript types for the Market Pulse prototype.
+ * I decided to use a union type for role/type rather than enums so the data
+ * stays plain-serializable and easy to filter with strict equality checks
+ * in the screener — no .toString() noise, no enum reverse-mapping quirks.
+ *
+ * activityHistory holds 7 normalized integers I made up for each trade;
+ * they drive the bezier SVG chart in TradeDetailsScreen without any live data.
+ */
+
 export type InsiderRole = 'CEO' | 'CFO' | 'Director' | 'Officer';
 
 export type TradeType = 'purchase' | 'sale';
+
 
 export type SignalStrength = 'High' | 'Medium' | 'Low';
 
