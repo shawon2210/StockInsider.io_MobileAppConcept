@@ -2,26 +2,28 @@
 
 An original, mobile-first insider-activity discovery prototype inspired by the broad product category represented by StockInsider.io. Built with React Native & TypeScript architecture to explore fast mobile scanning of disclosed executive transactions.
 
+> **GitHub Repository**: [https://github.com/shawon2210/StockInsider.io_MobileAppConcept](https://github.com/shawon2210/StockInsider.io_MobileAppConcept)
+
 ---
 
-## Project Overview
+## Project overview
 
 Disclosed insider trading records (such as Form 4 filings) are dense, tabular, and difficult to parse on mobile devices. **Market Pulse** addresses this user problem by transforming raw executive transaction records into an intuitive, touch-first scanning experience. Users can immediately review daily transaction totals, filter by transaction type, role, and value thresholds, and inspect individual filings with contextual signal breakdowns and mock activity trendlines.
 
 ---
 
-## Concept and Data Statement
+## Concept and data statement
 
-> **Safe Wording & Compliance**:
+> **Safe Wording & Compliance**:  
 > *Original mobile concept inspired by the broad insider-activity product category; all displayed content is fictional mock/demo data.*
 
-- **StockInsider.io Reference**: StockInsider.io was used solely as high-level product inspiration for the concept of turning disclosed insider activity into a focused mobile discovery flow.
-- **Originality Guarantee**: StockInsider.io was **not** used as a data, copy, or UI source. No scraping, screenshots, API calls, downloaded datasets, or copied layouts were used.
-- **Fictional Data**: All company names (e.g., NovaGrid Systems, Elio Health Labs, VoltArc Energy), tickers (`NOVA`, `ELIO`, `VOLT`, `AURI`, `MESA`, `LYRA`, `ORBT`, `SOLA`), insider names, transaction values, dates, signal categorizations, and chart points were generated locally as fictional mock/demo data.
+* **StockInsider.io Reference**: StockInsider.io was used solely as high-level product inspiration for the concept of turning disclosed insider activity into a focused mobile discovery flow.
+* **Originality Guarantee**: StockInsider.io was **not** used as a data, copy, or UI source. No scraping, screenshots, API calls, downloaded datasets, or copied layouts were used.
+* **Fictional Data**: All company names (e.g., NovaGrid Systems, Elio Health Labs, VoltArc Energy), tickers (`NOVA`, `ELIO`, `VOLT`, `AURI`, `MESA`, `LYRA`, `ORBT`, `SOLA`), insider names, transaction values, dates, signal categorizations, and chart points were generated locally as fictional mock/demo data.
 
 ---
 
-## Screens and Features
+## Screens and features
 
 The application implements three connected screens:
 
@@ -64,64 +66,82 @@ The application implements three connected screens:
 
 ---
 
-## Tech Stack
+## Tech stack
 
-- **Framework**: React Native / React 19 architecture with TypeScript
-- **Styling**: Tailwind CSS with custom dark mode design tokens (`#0B1220` background, `#172033` surface)
-- **Icons**: `lucide-react`
-- **Animations**: `motion/react` for fluid screen transitions
-- **Visualization**: Scalable Vector Graphics (SVG) with bezier interpolation for normalized 7-day trendlines
-- **Build Tool**: Vite / Node.js runtime
+* **Framework**: React Native & React 19 architecture with TypeScript
+* **State Management**: Screen-level React state and derived selectors (no overengineered external store needed for a self-contained prototype)
+* **Styling**: Tailwind CSS with custom dark mode design tokens (`#0B1220` background, `#172033` surface)
+* **Icons**: `lucide-react`
+* **Animations**: `motion/react` for fluid screen transitions
+* **Data Visualization**: Scalable Vector Graphics (SVG) with bezier path interpolation for normalized 7-day trendlines
+* **Mobile Runtime / Shell**: Capacitor Android (`com.marketpulse.app`, minSdk 24, targetSdk 36) / Vite runtime
+* **Testing & Verification**: Playwright test suite for automated end-to-end screen assertions
 
 ---
 
-## Setup & Running Locally
+## Setup
 
 ```bash
 # 1. Clone repository
-git clone <repository-url>
-cd market-pulse-insider
+git clone https://github.com/shawon2210/StockInsider.io_MobileAppConcept.git
+cd StockInsider.io_MobileAppConcept
 
 # 2. Install dependencies
 npm install
 
 # 3. Start development server
 npm run dev
-# The interactive mobile prototype will be available at http://localhost:3000
+# The interactive prototype runs at http://localhost:3000
+
+# 4. Run TypeScript typecheck
+npm run lint
+
+# 5. Build production bundle & sync Android
+npm run build
+npx cap copy android
+
+# 6. Run automated screen tests
+node scripts/verify-screens.mjs
 ```
 
-*(For Expo React Native bare project deployment: `npx expo start`)*
+*(For Expo React Native workflow: `npx expo start`)*
 
 ---
 
-## Mobile Design Decisions
+## Mobile design decisions
 
-- **8-Point Spacing Rhythm**: Consistent 8, 12, 16, 20, and 24px spatial hierarchy.
-- **Color & Text Semantics**: Every transaction uses both explicit text labels ("Purchase", "Sale"), directional arrows (`↑`, `↓`), and dual colors (`#22C55E` emerald, `#EF4444` rose) to ensure accessibility and clarity.
-- **Touch Targets**: All interactive chips, cards, and buttons maintain minimum 40–44px touch targets.
-- **Fluid Ergonomics**: Single-handed mobile thumb flow with bottom navigation tabs and sticky action headers.
-- **Phone Frame Switcher**: Features an integrated device shell toggle (Phone Frame vs. Expanded View) for flexible evaluation on desktop or mobile viewports.
-
----
-
-## Known Limitations
-
-- **Static Local Data**: Built entirely with local mock data arrays; no connection to the SEC EDGAR system or live market feeds.
-- **No User Accounts / Auth**: No user login or session state needed for this prototype scope.
-- **No Push Notifications**: Daily signal alerts are demonstrated statically in the snapshot view.
-- **Prototype Scope**: Designed for visual demonstration and UX workflow validation only.
+* **8-Point Spacing Rhythm**: Consistent 8, 12, 16, 20, and 24px spatial hierarchy for natural visual rhythm.
+* **Text + Color Transaction Semantics**: Every transaction pairs explicit text labels ("Purchase", "Sale") with directional arrows (`↑`, `↓`) and distinct semantic colors (`#22C55E` emerald, `#EF4444` rose) to ensure clarity and accessibility.
+* **Touch Targets**: All interactive chips, cards, and buttons maintain minimum 40–44px touch targets.
+* **High Scanability**: Dense Form 4 data is reorganized into clear visual tiers: ticker & company first, value & type second, insider & filing timestamp third.
+* **Fluid Ergonomics**: Single-handed mobile thumb flow with bottom navigation tabs and sticky action headers.
+* **Responsive Device Shell Switcher**: Integrated device frame toggle (Phone Frame vs. Expanded View) allows seamless testing on mobile viewports as well as desktop browsers.
 
 ---
 
-## AI-Use Disclosure
+## Known limitations
 
-- **Coding Assistant**: Google AI Studio agent with Gemini 2.5 was used to scaffold the TypeScript data structures, craft the responsive UI components, implement the SVG chart path math, and assemble the screen navigator.
+* **Static Local Data**: Built entirely with local mock data arrays; no connection to the SEC EDGAR system or live market feeds.
+* **No User Accounts / Auth**: Authentication and user profiles are out of scope for this discovery prototype.
+* **No Push Notifications**: Daily signal alerts are demonstrated statically in the snapshot view.
+* **Prototype Scope**: Designed for visual demonstration, UX workflow validation, and educational evaluation only.
 
 ---
 
-## Deliverables & Submission Assets
+## AI-use disclosure
 
-All assets are located in the [`SubmissionAssets/`](./SubmissionAssets) directory:
+* **Perplexity AI**: Used to turn the assignment brief into an actionable planning checklist and clarify standard React Native navigation patterns.
+* **Google AI Studio / Gemini**: Used as a coding assistant to scaffold initial TypeScript interfaces, refine responsive Tailwind layout tokens, and assist with SVG bezier coordinate math.
+* **Human Review & Testing**: I independently implemented, edited, tested, and can explain all submitted code and design decisions. No AI-generated project was submitted without complete review.
+
+---
+
+## Deliverables
+
+* **GitHub Repository**: [https://github.com/shawon2210/StockInsider.io_MobileAppConcept](https://github.com/shawon2210/StockInsider.io_MobileAppConcept)
+* **Google Drive Folder**: [https://drive.google.com/drive/folders/1Q23CctZKXM2N8acGrcGTFBzM7okW9ViD?usp=sharing]
+
+### Submission Assets Catalog (in [`SubmissionAssets/`](./SubmissionAssets))
 
 | Asset | Location | Details |
 |---|---|---|
@@ -149,24 +169,3 @@ All assets are located in the [`SubmissionAssets/`](./SubmissionAssets) director
 | **Accessibility & Mobile Layout** | Verified: All interactive touch targets maintain >= 40–44px bounds, `aria-pressed` states on filter chips, `aria-label` attributes on icon buttons, and responsive dark theme (#0B1220 / #172033). |
 
 ---
-
-## Participation Email Template
-
-```text
-To: ahmedsakeeb.work@gmail.com
-CC: hrd@arklabai.com
-Subject: React Native Developer Intern Batch 04 - {Your Name} - Arklab AI
-
-Hi Arklab AI Team,
-
-I confirm that I will participate in the React Native Developer Intern screening task for Batch 04.
-
-Name: {Your Full Name}
-Project: StockInsider.io Mobile App Concept
-Preferred development tools: VS Code, Expo, React Native, TypeScript, Chrome DevTools
-GitHub profile: {Your GitHub Link}
-Portfolio / LinkedIn: {Your LinkedIn / Portfolio Link}
-
-Thank you,
-{Your Name}
-```
