@@ -1,4 +1,14 @@
+/**
+ * components/SignalBadge.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Micro-badge for signal strength (High, Medium, Low).
+ * Uses subtle border and tint combinations rather than stark solid fills
+ * to maintain visual hierarchy without distracting from numerical trade values.
+ */
+
 import React from 'react';
+
 import { SignalStrength } from '../types/trade';
 import { Zap } from 'lucide-react';
 

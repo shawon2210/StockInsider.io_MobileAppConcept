@@ -1,5 +1,17 @@
+/**
+ * components/MockActivityChart.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Rather than pulling in heavy chart dependencies (like Recharts or Victory)
+ * for a small prototype, I wrote this custom SVG renderer from scratch.
+ * It computes cubic bezier control points between 7 normalized data points,
+ * draws an area fill gradient matching the trade type (emerald for buy,
+ * orange for sale), and renders a clean dashed reference grid.
+ */
+
 import React from 'react';
 import { Activity } from 'lucide-react';
+
 
 interface MockActivityChartProps {
   data: number[];

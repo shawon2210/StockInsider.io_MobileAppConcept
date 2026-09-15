@@ -1,4 +1,14 @@
+/**
+ * components/SummaryCard.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Metric card used in the Home snapshot grid.
+ * Supports distinct color variants (purchase emerald, sale red, accent purple, neutral blue)
+ * so each card's visual weight communicates its financial context at a glance.
+ */
+
 import React from 'react';
+
 import { LucideIcon } from 'lucide-react';
 
 interface SummaryCardProps {

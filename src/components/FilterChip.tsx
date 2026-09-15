@@ -1,4 +1,14 @@
+/**
+ * components/FilterChip.tsx
+ * Author: Shawon — github.com/shawon2210
+ *
+ * Reusable touchable filter chip.
+ * I enforced a minimum touch target of 40px (min-h-[40px]) to meet mobile
+ * accessibility guidelines, along with aria-pressed for screen reader state.
+ */
+
 import React from 'react';
+
 
 interface FilterChipProps {
   id: string;
